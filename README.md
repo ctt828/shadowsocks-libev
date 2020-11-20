@@ -15,9 +15,17 @@ $ host=arm-linux-gnueabihf ./build_shadowsocks-libev.sh
 ```
 $ scp ./out/shadowsocks-libev/bin/ss-server root@rpi1.local:/usr/bin/
 $ scp ./out/simple-obfs/bin/obfs-server root@rpi1.local:/usr/local/bin/
+$ scp ./config.json root@rpi1.local:/etc/shadowsocks-libev/
+$ scp ./ss-server.service root@rpi1.local:/etc/systemd/system/
 ```
 
 # Run
+```
+$ systemctl start ss-server
+$ systemctl status ss-server
+$ systemctl stop ss-server
+$ systemctl enable ss-server
+```
 ```
 $ ss-server \
        -s 0.0.0.0 \
